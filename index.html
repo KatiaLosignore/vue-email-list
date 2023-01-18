@@ -20,12 +20,21 @@
 
     </head>
     <body>
+        <div id="root">
 
-        <ul id="root">
-            
-            <li v-for="email in emails"> {{ email }}</li>
+            <div v-if="isLoading && !errorMessage">Is Loading...</div>
+            <div v-if="errorMessage && !isLoading">
+                <div class="alert"> {{ errorMessage }}</div>
+            </div>
 
-        </ul>
+            <ul v-if="emails.length === 10">
+                
+                <li v-for="email in emails"> {{ email }}</li>
+    
+            </ul>
+
+        </div>
+        
         
     </body>
 </html>
